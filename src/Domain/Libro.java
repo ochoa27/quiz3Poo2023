@@ -5,6 +5,8 @@ public class Libro extends Recurso implements Copiable,Prestable{
         super(prestado, nombre, copias);
     }
 
+
+
     @Override
     public String toString() {
         return super.toString();

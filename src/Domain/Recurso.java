@@ -16,6 +16,7 @@ public abstract class Recurso {
         this.copias = copias;
     }
 
+
     public boolean isPrestado() {
         return prestado;
     }

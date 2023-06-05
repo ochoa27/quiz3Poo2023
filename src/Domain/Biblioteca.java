@@ -45,7 +45,14 @@ public class Biblioteca {
         }
         System.out.println(listaprestados.toString());
     }
-    public void listarCopiasPorRecurso(){}
+    public void listarCopiasPorRecurso(){
+       for (Recurso item:recursos){
+//           verificarCopiable(item);
+           if(item instanceof Copiable){
+               System.out.println("el "+item.getNombre()+", se ha fotocopiado "+item.getCopias()+ " veces");
+           }
+       }
+    }
 
     public List<Recurso> getRecursos() {
         return recursos;
@@ -55,13 +62,13 @@ public class Biblioteca {
         this.recursos = recursos;
     }
     public void verificarPrestable(Recurso recurso){
-    if (!(recurso instanceof Prestable) && (recurso.isPrestado()==true)){
+    if (!(recurso instanceof Prestable) || (recurso.isPrestado()==true)){
         throw new VerificarRecursoPrestarExcepcion("este recurso no puede prestar");
-    }
+        }
     }
 
     public void verificarDevolver(Recurso recurso){
-        if(!(recurso instanceof Prestable)&& (recurso.isPrestado()==false)){
+        if(!(recurso instanceof Prestable)|| (recurso.isPrestado()==false)){
             throw new VerificarRecursoDevolverExcepcion("este recurso no puede ser devuelto");
         }
     }
