@@ -27,10 +27,12 @@ public class Biblioteca {
     public boolean fotocopiarRecurso(Recurso recurso){
         boolean respuestaReturn;
         verificarCopiable(recurso);
-        if(recurso.isPrestado()==false){
+        if(recurso.isPrestado()==true){
+            respuestaReturn=false;
+        } else{
             ((Copiable)recurso).fotocopiar();
             respuestaReturn=true;
-        } else respuestaReturn=false;
+        }
 
         return respuestaReturn;
     }
